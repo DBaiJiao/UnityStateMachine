@@ -79,18 +79,18 @@ public virtual void Close()                     // 关闭面板的方法
 ```csharp
 private Dictionary<string, AsyncOperationHandle<GameObject>> panelAssetHandles; // 存储已加载的资源Handle
 private Dictionary<string, BasePanel> panelCache;                               // 存储已创建的面板实例
-private Dictionary<UILayer, RectTransform> layerDict;                          // UI的层级父节点
-public Stack<BasePanel> panelStack;                                            // 面板栈，用于管理面板的返回功能
+private Dictionary<UILayer, RectTransform> layerDict;                           // UI的层级父节点
+public Stack<BasePanel> panelStack;                                             // 面板栈，用于管理面板的返回功能
 ```
 
 **主要方法：**
 ```csharp
 public void Init()                                                         // 初始化UI管理器
 public async void OpenPanel(string panelAddress, UILayer layer, object[])  // 打开面板
-public void ClosePanel(string panelAddress)                               // 关闭面板
-public async void PreloadPanel(string panelAddress)                       // 预加载面板资源
-public T GetPanel<T>(string panelName)                                    // 获取指定面板实例
-public void ClearAll()                                                    // 清理所有UI面板和资源
+public void ClosePanel(string panelAddress)                                // 关闭面板
+public async void PreloadPanel(string panelAddress)                        // 预加载面板资源
+public T GetPanel<T>(string panelName)                                     // 获取指定面板实例
+public void ClearAll()                                                     // 清理所有UI面板和资源
 ```
 
 ---
@@ -166,9 +166,6 @@ UIManager.Instance.OpenPanel("Panel_Settings", UILayer.Top);
 ```csharp
 // 关闭指定面板
 UIManager.Instance.ClosePanel("Panel_Attribute");
-
-// 或在面板内部调用
-this.Close();
 ```
 
 **获取面板实例：**
